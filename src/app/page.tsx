@@ -1,113 +1,113 @@
+// app/page.tsx
+import Wrapper from "@/components/Wrapper";
 import Image from "next/image";
+import { FaHeartbeat, FaVideo, FaPills } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
+    <main>
+      <Wrapper>
+        {/* Hero Section */}
+        <section className="text-center py-16 md:py-24">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            Manage Your Diabetes with Ease
+          </h1>
+          <p className="mt-4 text-lg text-gray-600 sm:text-xl md:text-2xl">
+            Our platform provides glucose monitoring,
+            teleconsultations, and more.
           </p>
-        </a>
+          <div className="mt-8 flex justify-center">
+            <a
+              href="/signup"
+              className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+            >
+              Get Started
+            </a>
+          </div>
+        </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+        {/* Features Section */}
+        <section className="py-16 md:py-24 bg-gray-100">
+          <h2 className="text-3xl font-bold text-gray-900 text-center">
+            Features
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <FaHeartbeat className="text-indigo-600 w-12 h-12 mx-auto" />
+              <h3 className="text-xl font-semibold text-gray-900 mt-4">
+                Real-Time Glucose Monitoring
+              </h3>
+              <p className="mt-4 text-gray-600">
+                Track your blood glucose levels with ease.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <FaVideo className="text-indigo-600 w-12 h-12 mx-auto" />
+              <h3 className="text-xl font-semibold text-gray-900 mt-4">
+                Teleconsultations
+              </h3>
+              <p className="mt-4 text-gray-600">
+                Connect with healthcare providers anytime, anywhere.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <FaPills className="text-indigo-600 w-12 h-12 mx-auto" />
+              <h3 className="text-xl font-semibold text-gray-900 mt-4">
+                Medication Reminders
+              </h3>
+              <p className="mt-4 text-gray-600">
+                Never miss a dose with our automated reminders.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+        {/* Testimonials Section */}
+        <section className="py-16 md:py-24">
+          <h2 className="text-3xl font-bold text-gray-900 text-center">
+            What Our Users Say
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+          <div className="mt-12 grid gap-8 lg:grid-cols-3">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <p className="text-gray-600">
+                &ldquo;This platform has changed my life. Managing diabetes has
+                never been easier!&rdquo;
+              </p>
+              <p className="mt-4 font-semibold text-gray-900">- John Doe</p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <p className="text-gray-600">
+                &ldquo;The teleconsultation feature is a game-changer. I can
+                talk to my doctor anytime.&rdquo;
+              </p>
+              <p className="mt-4 font-semibold text-gray-900">- Jane Smith</p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <p className="text-gray-600">
+                &ldquo;I love the medication reminders. It&apos;s one less thing
+                to worry about.&rdquo;
+              </p>
+              <p className="mt-4 font-semibold text-gray-900">- Sarah Lee</p>
+            </div>
+          </div>
+        </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+        {/* Call to Action */}
+        <section className="py-16 md:py-24 bg-indigo-600 text-white text-center">
+          <h2 className="text-3xl font-bold">Ready to Get Started?</h2>
+          <p className="mt-4 text-lg">
+            Join us today and take control of your diabetes.
           </p>
-        </a>
-      </div>
+          <div className="mt-8">
+            <a
+              href="/signup"
+              className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 md:py-4 md:text-lg md:px-10"
+            >
+              Sign Up
+            </a>
+          </div>
+        </section>
+      </Wrapper>
     </main>
   );
 }
