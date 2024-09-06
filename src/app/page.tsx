@@ -1,9 +1,18 @@
-// app/page.tsx
+"use client"
 import Wrapper from "@/components/Wrapper";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { FaHeartbeat, FaVideo, FaPills } from "react-icons/fa";
 
 export default function Home() {
+  const session = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/login");
+    },
+  });
+
   return (
     <main>
       <Wrapper>
@@ -27,7 +36,7 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 md:py-24 bg-gray-100">
+        <section className="py-16 px-8 md:py-24 bg-gray-100">
           <h2 className="text-3xl font-bold text-gray-900 text-center">
             Features
           </h2>
@@ -62,38 +71,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-16 md:py-24">
-          <h2 className="text-3xl font-bold text-gray-900 text-center">
-            What Our Users Say
-          </h2>
-          <div className="mt-12 grid gap-8 lg:grid-cols-3">
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <p className="text-gray-600">
-                &ldquo;This platform has changed my life. Managing diabetes has
-                never been easier!&rdquo;
-              </p>
-              <p className="mt-4 font-semibold text-gray-900">- John Doe</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <p className="text-gray-600">
-                &ldquo;The teleconsultation feature is a game-changer. I can
-                talk to my doctor anytime.&rdquo;
-              </p>
-              <p className="mt-4 font-semibold text-gray-900">- Jane Smith</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <p className="text-gray-600">
-                &ldquo;I love the medication reminders. It&apos;s one less thing
-                to worry about.&rdquo;
-              </p>
-              <p className="mt-4 font-semibold text-gray-900">- Sarah Lee</p>
-            </div>
-          </div>
-        </section>
+       
 
         {/* Call to Action */}
-        <section className="py-16 md:py-24 bg-indigo-600 text-white text-center">
+        <section className="py-16 mt-10 md:py-24 bg-indigo-600 text-white text-center">
           <h2 className="text-3xl font-bold">Ready to Get Started?</h2>
           <p className="mt-4 text-lg">
             Join us today and take control of your diabetes.
@@ -111,3 +92,5 @@ export default function Home() {
     </main>
   );
 }
+
+Home.requireAuth = true;

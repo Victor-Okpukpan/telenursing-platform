@@ -1,16 +1,31 @@
-// app/login/page.tsx
+"use client";
 import { FaLock, FaEnvelope } from "react-icons/fa";
 import Wrapper from "@/components/Wrapper";
+import { signIn } from "next-auth/react";
+import { useState } from "react";
 
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-50">
       <Wrapper>
-        <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
+        <div className="max-w-3xl w-full bg-white p-8 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-center text-gray-900">
             Login to Your Account
           </h2>
-          <form className="mt-8 space-y-6">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              signIn("credentials", {
+                email,
+                password,
+                redirect: true,
+                callbackUrl: "/dashboard",
+              });
+            }}
+            className="mt-8 space-y-6"
+          >
             <div>
               <label
                 htmlFor="email"
@@ -24,6 +39,8 @@ export default function LoginPage() {
                   id="email"
                   name="email"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   autoComplete="email"
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -44,6 +61,8 @@ export default function LoginPage() {
                   id="password"
                   name="password"
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -65,6 +84,7 @@ export default function LoginPage() {
             <div>
               <button
                 type="submit"
+                disabled={!email || !password}
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Sign in
