@@ -37,11 +37,7 @@ export default function DashboardLayout({
                         isPath(links.link) && "bg-[#383838]"
                       }  flex items-center transition-all ease-out duration-200 px-4 py-3 space-x-3 my-3 rounded-[10px]`}
                     >
-                      <div
-                        className={`${
-                          isPath(links.link) ? "bg-white" : "bg-[#A8A8A8]"
-                        } w-[15px] h-[15px] rounded`}
-                      ></div>
+                      
                       <span
                         className={`${
                           isPath(links.link) ? "text-white" : "text-[#A8A8A8]"

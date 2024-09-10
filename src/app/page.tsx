@@ -74,7 +74,7 @@ export default function Home() {
        
 
         {/* Call to Action */}
-        <section className="py-16 mt-10 md:py-24 bg-indigo-600 text-white text-center">
+        <section className="py-16 my-10 md:py-24 bg-indigo-600 text-white text-center">
           <h2 className="text-3xl font-bold">Ready to Get Started?</h2>
           <p className="mt-4 text-lg">
             Join us today and take control of your diabetes.

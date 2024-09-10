@@ -10,12 +10,14 @@ import { useRouter } from "next/navigation";
 import { auth, db } from "@/app/firebase"; // Import Firestore db
 
 import { updateProfile } from "firebase/auth";
+import { BiPhone } from "react-icons/bi";
 
 export default function SignupPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState(""); // State for the user's name
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState<any>("");
   const [loading, setLoading] = useState(false);
 
   return (
@@ -45,6 +47,7 @@ export default function SignupPage() {
                   uid: user.uid,
                   email: user.email,
                   name: user.displayName || "Unknown",
+                  phone: phone,
                   createdAt: new Date(),
                 });
 
@@ -69,6 +72,25 @@ export default function SignupPage() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Phone Number
+              </label>
+              <div className="mt-1 flex items-center">
+                <BiPhone className="text-gray-400 mr-2" />
+                <input
+                  id="phoneNumber"
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
